@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_security_acl">
+    <sys_security_acl action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <admin_overrides>true</admin_overrides>
+        <advanced>false</advanced>
+        <condition/>
+        <description>Default access control on x_144350_debug_pro_whitelisted_debug_properties</description>
+        <name>x_144350_debug_pro_whitelisted_debug_properties</name>
+        <operation display_value="read">read</operation>
+        <script/>
+        <sys_class_name>sys_security_acl</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-08-08 16:23:25</sys_created_on>
+        <sys_id>237e1be1db331300cb815608689619f8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_144350_debug_pro_whitelisted_debug_properties</sys_name>
+        <sys_package display_value="Debug Property Tracker" source="x_144350_debug_pro">083e9b21db331300cb81560868961951</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Debug Property Tracker">083e9b21db331300cb81560868961951</sys_scope>
+        <sys_update_name>sys_security_acl_237e1be1db331300cb815608689619f8</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-08-08 16:23:25</sys_updated_on>
+        <type display_value="record">record</type>
+    </sys_security_acl>
+</record_update>

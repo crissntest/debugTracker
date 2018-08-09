@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Whitelisted Debug Properties" max_length="40" name="x_144350_debug_pro_whitelisted_debug_properties" type="collection">
+        <element label="Active until" max_length="40" name="active_until" type="glide_date_time"/>
+        <element hint="Business reason why the debug property should be enabled." label="Justification" max_length="400" name="justification" type="string"/>
+        <element hint="Specify the name of the property to be whitelisted" label="System Property Name" max_length="40" name="name" reference="sys_properties" type="reference"/>
+        <element label="Product" max_length="32" name="product" reference="cmdb_application_product_model" type="reference"/>
+        <element label="Requestor" max_length="32" name="requestor" reference="sys_user" type="reference"/>
+        <index name="index">
+            <element name="product"/>
+        </index>
+        <index name="index2">
+            <element name="requestor"/>
+        </index>
+    </element>
+</database>

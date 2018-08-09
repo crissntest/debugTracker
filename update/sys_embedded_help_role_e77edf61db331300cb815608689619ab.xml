@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_embedded_help_role">
+    <sys_embedded_help_role action="INSERT_OR_UPDATE">
+        <order>1000</order>
+        <role display_value="x_144350_debug_pro.whitelisted_debug_properties_user" name="x_144350_debug_pro.whitelisted_debug_properties_user">577edf61db331300cb815608689619a9</role>
+        <sys_class_name>sys_embedded_help_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-08-08 16:23:25</sys_created_on>
+        <sys_id>e77edf61db331300cb815608689619ab</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>577edf61db331300cb815608689619a9</sys_name>
+        <sys_package display_value="Debug Property Tracker" source="x_144350_debug_pro">083e9b21db331300cb81560868961951</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Debug Property Tracker">083e9b21db331300cb81560868961951</sys_scope>
+        <sys_update_name>sys_embedded_help_role_e77edf61db331300cb815608689619ab</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-08-08 16:23:25</sys_updated_on>
+    </sys_embedded_help_role>
+</record_update>

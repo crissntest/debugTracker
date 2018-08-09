@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_scope_privilege">
+    <sys_scope_privilege action="INSERT_OR_UPDATE">
+        <operation>execute</operation>
+        <source_scope display_value="Debug Property Tracker">083e9b21db331300cb81560868961951</source_scope>
+        <status>allowed</status>
+        <sys_class_name>sys_scope_privilege</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-08-08 21:26:09</sys_created_on>
+        <sys_id>8ac3e439dbf31300cb81560868961976</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>GlideRecord.update</sys_name>
+        <sys_package display_value="Debug Property Tracker" source="x_144350_debug_pro">083e9b21db331300cb81560868961951</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Debug Property Tracker">083e9b21db331300cb81560868961951</sys_scope>
+        <sys_update_name>sys_scope_privilege_8ac3e439dbf31300cb81560868961976</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-08-08 21:26:09</sys_updated_on>
+        <target_name>GlideRecord.update</target_name>
+        <target_scope display_value="Global">global</target_scope>
+        <target_type>scriptable</target_type>
+    </sys_scope_privilege>
+</record_update>
