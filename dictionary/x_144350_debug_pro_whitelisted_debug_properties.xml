@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<database>
+<?xml version="1.0" encoding="UTF-8"?><database>
     <element label="Whitelisted Debug Properties" max_length="40" name="x_144350_debug_pro_whitelisted_debug_properties" type="collection">
         <element label="Active until" max_length="40" name="active_until" type="glide_date_time"/>
         <element hint="Business reason why the debug property should be enabled." label="Justification" max_length="400" name="justification" type="string"/>
@@ -10,6 +9,9 @@
             <element name="product"/>
         </index>
         <index name="index2">
+            <element name="name"/>
+        </index>
+        <index name="index3">
             <element name="requestor"/>
         </index>
     </element>

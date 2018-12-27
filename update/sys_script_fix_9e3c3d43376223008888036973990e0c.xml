@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
+    <sys_script_fix action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <before>false</before>
+        <description/>
+        <flush_cache>false</flush_cache>
+        <name>Disable debug property not whitelisted</name>
+        <record_for_rollback>false</record_for_rollback>
+        <run_once>true</run_once>
+        <script><![CDATA[/* inactivate all active debug property in sys_properties table
+1. Search for debug record in sys_property
+2. Loop into custom table
+3. If found, check if expired set to inactive and flush cache
+4. If not found, set to inactive and flush cache
+*/
+
+var ctr = 0;
+var rightnow = new GlideDateTime();
+var gr1 = new GlideRecord('sys_properties');
+gr1.addEncodedQuery("nameLIKEdebug^type=boolean^value=true");
+gr1.query();
+var gr2;
+while(gr1.next()){
+	
+gr2 = new GlideRecord('x_144350_debug_pro_whitelisted_debug_properties');
+gr2.addQuery('system_property_name.name',gr1.name);
+var activeUntil;
+gr2.query();
+if(gr2.next()){
+	activeUntil = new GlideDateTime(gr2.active_until);
+	if(activeUntil.before(rightnow)){
+		gr1.value = false;
+		gr1.setWorkflow(false);
+		gr1.update();
+		ctr++;
+		}else{
+		
+			gs.log('gr2 values is: ' + gr2.system_property_name + ' and gr1 is: ' + gr1.name);
+			
+			}
+	
+	}else{
+		gr1.value = 'false';
+		gr1.setWorkflow(false);
+		gr1.update();
+		ctr++;
+			}
+
+}
+
+//gs.print('Final counter value:' + ctr);
+if(ctr >= 1){
+	gs.cacheFlush();
+}]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-12-27 17:57:54</sys_created_on>
+        <sys_id>9e3c3d43376223008888036973990e0c</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Disable debug property not whitelisted</sys_name>
+        <sys_package display_value="Debug Property Tracker" source="x_144350_debug_pro">083e9b21db331300cb81560868961951</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Debug Property Tracker">083e9b21db331300cb81560868961951</sys_scope>
+        <sys_update_name>sys_script_fix_9e3c3d43376223008888036973990e0c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-12-27 17:58:24</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+</record_update>

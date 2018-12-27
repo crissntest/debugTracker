@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysauto_script">
+    <sysauto_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition/>
+        <conditional>false</conditional>
+        <name>Disable debug property not whitelisted</name>
+        <run_as display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</run_as>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_period/>
+        <run_start>2018-12-27 17:54:43</run_start>
+        <run_time>1970-01-01 08:00:00</run_time>
+        <run_type>daily</run_type>
+        <script><![CDATA[/* inactivate all active debug property in sys_properties table
+1. Search for debug record in sys_property
+2. Loop into custom table
+3. If found, check if expired set to inactive and flush cache
+4. If not found, set to inactive and flush cache
+*/
+
+var ctr = 0;
+var rightnow = new GlideDateTime();
+var gr1 = new GlideRecord('sys_properties');
+gr1.addEncodedQuery("nameLIKEdebug^type=boolean^value=true");
+gr1.query();
+var gr2;
+while(gr1.next()){
+	
+gr2 = new GlideRecord('x_opt_platform_man_whitelisted_debug_properties');
+gr2.addQuery('system_property_name.name',gr1.name);
+var activeUntil;
+gr2.query();
+if(gr2.next()){
+	activeUntil = new GlideDateTime(gr2.active_until);
+	if(activeUntil.before(rightnow)){
+		gr1.value = false;
+		gr1.setWorkflow(false);
+		gr1.update();
+		ctr++;
+		}else{
+		
+			gs.log('gr2 values is: ' + gr2.system_property_name + ' and gr1 is: ' + gr1.name);
+			
+			}
+	
+	}else{
+		gr1.value = 'false';
+		gr1.setWorkflow(false);
+		gr1.update();
+		ctr++;
+			}
+
+}
+
+//gs.print('Final counter value:' + ctr);
+if(ctr >= 1){
+	gs.cacheFlush();
+}]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-12-27 17:55:17</sys_created_on>
+        <sys_id>a78b3903376223008888036973990e4d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Disable debug property not whitelisted</sys_name>
+        <sys_package display_value="Debug Property Tracker" source="x_144350_debug_pro">083e9b21db331300cb81560868961951</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Debug Property Tracker">083e9b21db331300cb81560868961951</sys_scope>
+        <sys_update_name>sysauto_script_a78b3903376223008888036973990e4d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-12-27 17:55:17</sys_updated_on>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+</record_update>
